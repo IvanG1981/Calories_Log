@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  calories_in: 1
+  calories_burn: 1
+  food_for_calories_in: MyString
+  activity_for_calories_burn: MyString
+
+two:
+  user_id: 1
+  calories_in: 1
+  calories_burn: 1
+  food_for_calories_in: MyString
+  activity_for_calories_burn: MyString
