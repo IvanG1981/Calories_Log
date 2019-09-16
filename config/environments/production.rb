@@ -61,7 +61,7 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "calories_log_production"
 
   config.action_mailer.perform_caching = false
-
+  config.actionmailer.defaulturl_options = { :host => 'https://calorieslog.herokuapp.com' }
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
