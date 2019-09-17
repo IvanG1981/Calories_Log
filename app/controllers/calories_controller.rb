@@ -23,6 +23,7 @@ class CaloriesController < ApplicationController
   end
 
   def show
+    @calory = Calory.find(params[:id])
   end
 
   def index
@@ -31,13 +32,30 @@ class CaloriesController < ApplicationController
   end
 
   def edit
+    id = params[:id]
+    @calory = Calory.find(id)
+
   end
 
   def update
+    @calory = Calory.find(params[:id])
+    #current_user
+    if @calory.update(calory_params)
+      redirect_to calories_path
+      flash[:success] = 'Calory Log Updated'
+    else
+      render 'edit'
+    end
+
   end
 
   def destroy
+    @calory = Calory.find(params[:id])
+    @calory.delete
+    redirect_to root_path
+    flash[:warning] = 'Calories Log Deleted'
   end
+
 
   private
 

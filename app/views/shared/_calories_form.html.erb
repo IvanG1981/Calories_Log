@@ -1,0 +1,24 @@
+<div >
+    <div >
+      <%= link_to "Back", calories_path, class:"button is-link" %>
+    </div>
+</div>
+
+<div>
+  <%= form_for @calory do |u| %>
+  <%= render 'shared/error_messages', object: @calory %>
+    <div >
+      <%= u.label "Calories Number: " %><br />
+      <%= u.text_field :calories_number %><br/>
+    </div>
+    <div>
+      <%= u.label "Type Of Calories Log: " %><br />
+      <%= u.select :calories_type, options_for_select([["Calories Ingested", true], ["Calories Burnt", false]]) %>
+    </div>
+    <div>
+      <%= u.label "Calories Log Related Activity: " %><br />
+      <%= u.text_area :calories_related_activity, cols: '80', rows: '5', placeholder: "What's happening?" %><br/>
+    </div>
+    <%= u.submit 'SUBMIT' %>
+  <% end %>
+</div>

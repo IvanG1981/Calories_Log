@@ -14,14 +14,30 @@
   </div>
 </section>
 
-<div >
-    <% @calories.each do |cal| %>
-    <div >
-      <p>
-        <%= cal.calories_number %>
-        <%= cal.calories_type %>
-        <%= cal.calories_related_activity %>
-      </p>
-    </div>
-    <% end %>
-</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Log Number</th>
+      <th>Calories</th>
+      <th>Related Activity</th>
+      <th>Type of Calories (Ingested/Burnt)</th>
+      <th>Options</th>
+    </tr>
+  </thead>
+  <tbody >
+      <% @calories.each do |cal| %>
+      <tr>
+          <td><%= link_to cal.id, calory_path(cal) %></td>
+          <td><%= cal.calories_number %></td>
+          <td><%= cal.calories_related_activity %></td>
+          <td><%= cal.calories_type ? "Calories Ingested":"Calories Burnt"%></td>
+          <td>
+            <div>
+              <%= link_to 'Delete Log', calory_path(cal), method: :delete %>
+              <%= link_to 'Edit Log', edit_calory_path(cal)%>
+            </div>
+          </td>
+      </tr>
+     <% end %>
+  </tbody>
+</table>

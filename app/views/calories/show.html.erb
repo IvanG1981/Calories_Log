@@ -1,33 +1,35 @@
-<h1>Calories#show</h1>
-<p>Find me in app/views/calories/show.html.erb</p>
 
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      Calories Log Number: &nbsp;
+       <%=@calory.id %>
 
-#current_user
-#@calory = Calory.new(calory_params)
-#@calory.user = current_user
-#if @calory.save
-#     redirect_to user_calories_path
-#     flash[:success] = 'Log Created'
-#else
-#     flash[:danger] = 'Error'
-#     render "new"
-#end
+    </p>
 
+    <a href="#" class="card-header-icon" aria-label="more options">
+      <span class="icon">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </a>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <%= @calory.calories_related_activity %>
 
-<div>
-<%= form_for @calory do |u| %>
-  <div >
-    <%= u.label "Calories Number: " %><br />
-    <%= u.text_field :calories_number %><br/>
+      <br>
+      <ul>
+        <li><%= @calory.calories_number %></li>
+        <li><%= @calory.calories_related_activity %></li>
+        <li><%= @calory.calories_type ? "Calories Ingested":"Calories Burnt"%></li>
+      </ul>
+      <time datetime="2016-1-1">Logged on: &nbsp;<%= @calory.created_at %></time>
+    </div>
   </div>
-  <div>
-    <%= u.label "Type Of Calories Log: " %><br />
-    <%= u.select :calories_type, options_for_select([["Calories Ingested", true], ["Calories Burnt", false]]) %>
-  </div>
-  <div>
-    <%= u.label "Calories Log Related Activity: " %><br />
-    <%= u.text_area :calories_related_activity, cols: '80', rows: '5', placeholder: "What's happening?" %><br/>
-  </div>
-  <%= u.submit 'SUBMIT' %>
-<% end %>
+  <footer class="card-footer">
+      <a><%= link_to 'Edit Log', edit_calory_path(@calory), class:"card-footer-item"%></a>
+      <a><%= link_to 'Delete Log', calory_path(@calory), method: :delete, class:"card-footer-item" %></a>
+      <a><%= link_to "Back", calories_path, class:"card-footer-item" %></a>
+  </footer>
+
 </div>
