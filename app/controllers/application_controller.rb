@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
+  protect_from_forgery
 
-  def hello
-    render html: 'Hello World...testing'
-  end
 
-end 
+
+end

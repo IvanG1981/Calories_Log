@@ -1,5 +1,5 @@
 
-<section class="hero is-info">
+<section class="hero is-dark is-bold">
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
@@ -8,8 +8,20 @@
       <h2 class="subtitle">
         Welcome <i><%= current_user.name %></i>
       </h2>
-      <i><%= link_to 'New Log', new_user_calory_path, class:"button is-outlined" %></i>
+      <%= link_to 'New Log', new_calory_path, class:"button is-link" %>
 
     </div>
   </div>
 </section>
+
+<div >
+    <% @calories.each do |cal| %>
+    <div >
+      <p>
+        <%= cal.calories_number %>
+        <%= cal.calories_type %>
+        <%= cal.calories_related_activity %>
+      </p>
+    </div>
+    <% end %>
+</div>

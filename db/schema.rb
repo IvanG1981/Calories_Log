@@ -10,16 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_16_164627) do
+ActiveRecord::Schema.define(version: 2019_09_16_200111) do
 
   create_table "calories", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "calories_in"
-    t.integer "calories_burn"
-    t.string "food_for_calories_in"
-    t.string "activity_for_calories_burn"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "calories_number"
+    t.boolean "calories_type"
+    t.string "calories_related_activity"
   end
 
   create_table "users", force: :cascade do |t|

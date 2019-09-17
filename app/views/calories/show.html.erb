@@ -1,2 +1,33 @@
 <h1>Calories#show</h1>
 <p>Find me in app/views/calories/show.html.erb</p>
+
+
+#current_user
+#@calory = Calory.new(calory_params)
+#@calory.user = current_user
+#if @calory.save
+#     redirect_to user_calories_path
+#     flash[:success] = 'Log Created'
+#else
+#     flash[:danger] = 'Error'
+#     render "new"
+#end
+
+
+<div>
+<%= form_for @calory do |u| %>
+  <div >
+    <%= u.label "Calories Number: " %><br />
+    <%= u.text_field :calories_number %><br/>
+  </div>
+  <div>
+    <%= u.label "Type Of Calories Log: " %><br />
+    <%= u.select :calories_type, options_for_select([["Calories Ingested", true], ["Calories Burnt", false]]) %>
+  </div>
+  <div>
+    <%= u.label "Calories Log Related Activity: " %><br />
+    <%= u.text_area :calories_related_activity, cols: '80', rows: '5', placeholder: "What's happening?" %><br/>
+  </div>
+  <%= u.submit 'SUBMIT' %>
+<% end %>
+</div>
