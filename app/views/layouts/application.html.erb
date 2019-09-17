@@ -15,8 +15,8 @@
     <% flash.each do |message_type, message| %>
         <div class="notification is-<%= message_type %>" ><%= message %></div>
     <% end %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+
     <%= yield %>
+    
   </body>
 </html>
