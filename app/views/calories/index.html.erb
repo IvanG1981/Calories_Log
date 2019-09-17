@@ -13,8 +13,13 @@
     </div>
   </div>
 </section>
-
-<table class="table">
+<div >
+  <div class= "tabs is-centered", id="paginationContainer"  >
+    <%= paginate @calories %>
+  </div>
+</div>
+<div id="tableContainer">
+<table class="table" >
   <thead>
     <tr>
       <th>Log Number</th>
@@ -26,7 +31,7 @@
   </thead>
   <tbody >
       <% @calories.each do |cal| %>
-      <tr>
+      <tr >
           <td><%= link_to cal.id, calory_path(cal) %></td>
           <td><%= cal.calories_number %></td>
           <td><%= cal.calories_related_activity %></td>
@@ -41,3 +46,4 @@
      <% end %>
   </tbody>
 </table>
+</div>

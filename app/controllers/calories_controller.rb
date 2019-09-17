@@ -27,8 +27,9 @@ class CaloriesController < ApplicationController
   end
 
   def index
-    #current_user
-    @calories = Calory.all
+
+    @calories = current_user.calory.page(params[:page])
+    
   end
 
   def edit

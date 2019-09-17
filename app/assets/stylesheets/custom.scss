@@ -1,1 +1,14 @@
 @import "bulma";
+
+/*Pagination*/
+#paginationContainer {
+  display: flex;
+  justify-content: center;
+}
+/*Table in the index html */
+#tableContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
