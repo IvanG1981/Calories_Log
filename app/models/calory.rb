@@ -8,4 +8,10 @@ class Calory < ApplicationRecord
   #validates :calories_type, presence: true
   validates :calories_related_activity, presence: true, length: { maximum: 140}
   paginates_per 10
+
+
+  def self.search
+    raise params.inspect
+  end
+
 end

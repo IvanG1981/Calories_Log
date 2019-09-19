@@ -1,7 +1,7 @@
 class CaloriesController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :create]
-  #skip_before_action :verify_authenticity_token
+
 
   def new
     @calory = Calory.new
@@ -27,10 +27,19 @@ class CaloriesController < ApplicationController
   end
 
   def index
-
-    @calories = current_user.calory.page(params[:page])
-    
+      if params[:date]
+        date = params[:date].to_date
+        @calories = current_user.calory.where('created_at > ? and created_at < ?', date.midnight - 1.day, date.midnight + 1.day).page(params[:page])
+        
+        #redirect_to calories_path
+      else
+        @calories = current_user.calory.page(params[:page])
+      end
   end
+  #calories = current_user.calory
+  #calories.search
+  #raise params.inspect
+ #@calories = current_user.calory.all
 
   def edit
     id = params[:id]
@@ -61,6 +70,6 @@ class CaloriesController < ApplicationController
   private
 
   def calory_params
-    params.require(:calory).permit(:calories_number, :calories_type, :calories_related_activity, :user_id)
+    params.require(:calory).permit(:calories_number, :calories_type, :calories_related_activity, :user_id, :date)
   end
 end

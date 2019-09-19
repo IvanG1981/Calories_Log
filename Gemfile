@@ -8,6 +8,8 @@ gem 'rails', '~> 6.0.0'
 gem 'devise'
 gem 'faker', '2.1.2'
 gem 'kaminari'
+gem 'chartkick'
+gem 'groupdate'
 
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3', '~> 1.4'

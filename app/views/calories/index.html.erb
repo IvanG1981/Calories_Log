@@ -1,4 +1,5 @@
 
+
 <section class="hero is-dark is-bold">
   <div class="hero-body">
     <div class="container">
@@ -9,7 +10,11 @@
         Welcome <i><%= current_user.name %></i>
       </h2>
       <%= link_to 'New Log', new_calory_path, class:"button is-link" %>
-
+      <%= form_tag calories_path, method: :get do %>
+        <%= label_tag :date, "Search for:" %>
+        <%= date_field_tag :date, params[:date] %>
+        <%= submit_tag "Search", name: nil %>
+      <% end %>
     </div>
   </div>
 </section>
