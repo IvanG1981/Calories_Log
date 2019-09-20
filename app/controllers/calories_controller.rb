@@ -36,10 +36,6 @@ class CaloriesController < ApplicationController
         @calories = current_user.calory.page(params[:page])
       end
   end
-  #calories = current_user.calory
-  #calories.search
-  #raise params.inspect
- #@calories = current_user.calory.all
 
   def edit
     id = params[:id]
