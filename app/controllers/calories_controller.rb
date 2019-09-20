@@ -30,7 +30,7 @@ class CaloriesController < ApplicationController
       if params[:date]
         date = params[:date].to_date
         @calories = current_user.calory.where('created_at > ? and created_at < ?', date.midnight - 1.day, date.midnight + 1.day).page(params[:page])
-        
+
         #redirect_to calories_path
       else
         @calories = current_user.calory.page(params[:page])
