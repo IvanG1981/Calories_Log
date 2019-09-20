@@ -10,11 +10,24 @@
         Welcome <i><%= current_user.name %></i>
       </h2>
       <%= link_to 'New Log', new_calory_path, class:"button is-link" %>
-      <%= form_tag calories_path, method: :get do %>
-        <%= label_tag :date, "Search for:" %>
-        <%= date_field_tag :date, params[:date] %>
-        <%= submit_tag "Search", name: nil %>
-      <% end %>
+      <div class="level-right">
+
+        <div class="level-item">
+          <div class="field has-addons">
+
+            <p class="control">
+              <%= form_tag calories_path, method: :get do %>
+              
+                <%= label_tag :date, "Search for:" %>
+                <%= date_field_tag :date, params[:date], class: "input" %>
+                <%= submit_tag "Search", name: nil, class:"button is-link" %>
+              <% end %>
+            </p>
+
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -52,3 +65,6 @@
   </tbody>
 </table>
 </div>
+
+
+  <!-- Left side -->

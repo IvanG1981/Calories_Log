@@ -27,12 +27,12 @@ class CaloriesController < ApplicationController
   end
 
   def index
-      if params[:date]
-        date = params[:date].to_date
-        @calories = current_user.calory.where('created_at > ? and created_at < ?', date.midnight - 1.day, date.midnight + 1.day).page(params[:page])
 
-        #redirect_to calories_path
-      else
+      if params[:date] && params[:date]!= ""
+        date = params[:date].to_date
+        #raise params.inspect
+        @calories = current_user.calory.where('created_at > ? and created_at < ?', date.midnight - 1.day, date.midnight + 1.day).page(params[:page])
+      elsif
         @calories = current_user.calory.page(params[:page])
       end
   end
